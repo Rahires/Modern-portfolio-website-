@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Contact - Portfolio</title>
+<link rel="stylesheet" href="contact.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<header>
+    📞 Contact Me
+</header>
+
+<div class="container">
+
+    <!-- CALL -->
+    <div class="card">
+        <i class="fa-solid fa-phone icon"></i>
+        <h2>Call Me</h2>
+        <p>Direct call support</p>
+        <a href="tel:+919284488740">Call Now</a>
+    </div>
+
+    <!-- EMAIL -->
+    <div class="card">
+        <i class="fa-solid fa-envelope icon"></i>
+        <h2>Email Me</h2>
+        <p>Send a professional email</p>
+        <a href="mailto:rahires818@gmail.com?subject=Project Inquiry">
+            Send Email
+        </a>
+    </div>
+
+    <!-- WHATSAPP -->
+    <div class="card">
+        <i class="fa-brands fa-whatsapp icon"></i>
+        <h2>WhatsApp</h2>
+        <p>Chat instantly</p>
+        <a href="https://wa.me/919284488740?text=Hi, I want to hire you for a project" target="_blank">
+            Chat Now
+        </a>
+    </div>
+
+    <!-- ADDRESS -->
+    <div class="card address">
+        <i class="fa-solid fa-location-dot icon"></i>
+        <h2>Address</h2>
+        <p>
+            Nanded, Maharashtra, India
+        </p>
+    </div>
+
+    <!-- MESSAGE FORM -->
+    <div class="card full">
+        <i class="fa-solid fa-message icon"></i>
+        <h2>Quick Message</h2>
+
+        <form onsubmit="sendMessage(event)">
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Your Email" required>
+            <textarea id="msg" placeholder="Your Message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p id="status"></p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Rahire Sahebrao Portfolio | All Rights Reserved
+</footer>
+
+<script>
+function sendMessage(event) {
+    event.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("msg").value;
+
+    let whatsappURL = "https://wa.me/919284488740?text="
+        + "Name: " + name + "%0A"
+        + "Email: " + email + "%0A"
+        + "Message: " + msg;
+
+    window.open(whatsappURL, "_blank");
+
+    document.getElementById("status").innerText =
+        "🚀 Redirecting to WhatsApp...";
+}
+</script>
+
+</body>
+</html>

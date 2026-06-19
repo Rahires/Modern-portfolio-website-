@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About - Rahire Sahebrao</title>
+<link rel="stylesheet" href="about.css">
+</head>
+
+<body>
+
+<!-- animated background -->
+<div class="bg"></div>
+
+<header>
+    👨‍💻 About Me
+</header>
+
+<div class="intro">
+    <span id="typing"></span>
+</div>
+
+<div class="container">
+
+    <div class="card highlight">
+        <h2>👨‍💻 Profile</h2>
+        <p>
+            I am Rahire Sahebrao, Computer Science graduate from MGMs College.
+            I completed BSc CS with CGPA 9.0.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🎯 Developer Mindset</h2>
+        <p>
+            Passionate about coding, problem solving and building real-world applications.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>💻 Technical Skills</h2>
+        <p>
+            C, C++, Java, Python, C# <br>
+            HTML, CSS, JavaScript, React <br>
+            MySQL, Oracle <br>
+            Bash / Linux Automation
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🔐 Cybersecurity Interest</h2>
+        <p>
+            Interested in ethical hacking, network analysis,
+            system security and penetration testing concepts.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🛡️ Security Awareness</h2>
+        <p>
+            Secure coding, firewall concepts, authentication systems
+            and real-world attack prevention understanding.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>🚀 Goal</h2>
+        <p>
+            Become a full-stack developer with strong cybersecurity expertise
+            and build secure production-ready applications.
+        </p>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 Rahire Sahebrao Portfolio
+</footer>
+
+<script>
+// typing animation
+let text = "Welcome to my professional journey 🚀";
+let i = 0;
+
+function typing() {
+    if(i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+
+typing();
+</script>
+
+</body>
+</html>

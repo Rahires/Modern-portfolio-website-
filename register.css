@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0f172a;
+    color: white;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    font-size: 28px;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+/* Container */
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 30px;
+}
+
+/* Card */
+.card {
+    background: #1e293b;
+    padding: 25px;
+    border-radius: 12px;
+    width: 320px;
+    animation: slide 0.8s ease;
+}
+
+@keyframes slide {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Inputs */
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    border: none;
+}
+
+/* Button */
+button {
+    padding: 10px 15px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Done message */
+#done {
+    display: none;
+    margin-top: 10px;
+    background: lightgreen;
+    color: black;
+    padding: 10px;
+    border-radius: 6px;
+}

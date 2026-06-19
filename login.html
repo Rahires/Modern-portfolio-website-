@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+<header>Client Login</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Login</h2>
+
+        <input type="text" id="user" placeholder="Username">
+        <input type="password" id="pass" placeholder="Password">
+
+        <button onclick="login()">Login</button>
+
+        <p id="msg"></p>
+
+        <div id="success">💰 Login Successful</div>
+
+    </div>
+
+</div>
+
+<script>
+function login() {
+
+    let user = document.getElementById("user").value.trim();
+    let pass = document.getElementById("pass").value.trim();
+    let msg = document.getElementById("msg");
+
+    msg.style.color = "red";
+
+    if(user === "" || pass === "") {
+        msg.innerText = "❌ All fields are required";
+        return;
+    }
+
+    if(user.length < 3) {
+        msg.innerText = "❌ Username must be at least 3 characters";
+        return;
+    }
+
+    if(pass.length < 5) {
+        msg.innerText = "❌ Password must be at least 5 characters";
+        return;
+    }
+
+    msg.style.color = "lightgreen";
+    msg.innerText = "✔ Logging in...";
+
+    setTimeout(() => {
+        document.getElementById("success").style.display = "block";
+    }, 800);
+}
+</script>
+
+</body>
+</html>

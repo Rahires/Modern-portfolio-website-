@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+
+<header>Create Account</header>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Register 🚀</h2>
+
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="email" id="email" placeholder="Email">
+        <input type="password" id="pass" placeholder="Password">
+
+        <h3>Select Skills</h3>
+
+        <label><input type="checkbox" class="skill"> Web Dev</label>
+        <label><input type="checkbox" class="skill"> Frontend</label>
+        <label><input type="checkbox" class="skill"> Backend</label>
+        <label><input type="checkbox" class="skill"> Python</label>
+        <label><input type="checkbox" class="skill"> Cybersecurity</label>
+        <label><input type="checkbox" class="skill"> Bash/Linux</label>
+
+        <button onclick="register()">Register</button>
+
+        <p id="msg"></p>
+
+        <div id="done">✅ Account Created Successfully</div>
+
+    </div>
+
+</div>
+
+<script>
+function register() {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let pass = document.getElementById("pass").value.trim();
+    let skills = document.querySelectorAll(".skill:checked");
+    let msg = document.getElementById("msg");
+
+    msg.style.color = "red";
+
+    // Name validation
+    if(name === "" || name.length < 3) {
+        msg.innerText = "❌ Enter valid name (min 3 letters)";
+        return;
+    }
+
+    // Email validation
+    if(!email.includes("@") || !email.includes(".")) {
+        msg.innerText = "❌ Enter valid email";
+        return;
+    }
+
+    // Password validation
+    if(pass.length < 6) {
+        msg.innerText = "❌ Password must be at least 6 characters";
+        return;
+    }
+
+    // Skill selection validation
+    if(skills.length === 0) {
+        msg.innerText = "❌ Select at least one skill";
+        return;
+    }
+
+    msg.style.color = "lightgreen";
+    msg.innerText = "✔ Creating account...";
+
+    setTimeout(() => {
+        document.getElementById("done").style.display = "block";
+    }, 800);
+}
+</script>
+
+</body>
+</html>
