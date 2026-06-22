@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Certificate Generator</title>
+
+<link rel="stylesheet" href="courses.css">
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<h1>🏆 Learn With Me</h1>
+
+<p class="subtitle">
+Self-Paced Course Certificate Generator
+</p>
+
+
+
+<div class="form-box">
+
+
+<label>
+Student Name
+</label>
+
+<input 
+type="text"
+id="studentName"
+placeholder="Enter your name">
+
+
+
+<label>
+Select Course
+</label>
+
+
+<select id="courseName">
+
+
+<option>
+C Programming
+</option>
+
+<option>
+C++ Programming
+</option>
+
+<option>
+HTML & CSS
+</option>
+
+<option>
+Python Programming
+</option>
+
+<option>
+Java Programming
+</option>
+
+<option>
+C# Programming
+</option>
+
+<option>
+Bash Scripting
+</option>
+
+
+</select>
+
+
+
+<button onclick="generateCertificate()">
+
+Generate Certificate
+
+</button>
+
+
+</div>
+
+
+
+
+<div class="certificate" id="certificate">
+
+
+<h2>
+🏆 Certificate of Completion
+</h2>
+
+
+
+<p>
+This certificate is proudly presented to
+</p>
+
+
+
+<h1 id="certName">
+Student Name
+</h1>
+
+
+
+
+<p>
+for successfully completing the self-paced course
+</p>
+
+
+
+<h3 id="certCourse">
+Course Name
+</h3>
+
+
+
+
+<p>
+Certificate ID :
+
+<span id="certId">
+
+</span>
+
+</p>
+
+
+
+
+<p class="date">
+
+Date :
+<span id="certDate"></span>
+
+</p>
+
+
+
+
+
+<div class="signature">
+
+
+<div>
+
+_________________
+
+<br>
+
+Instructor
+
+<br>
+
+Rahire Sahebrao
+
+</div>
+
+
+
+<div>
+
+_________________
+
+<br>
+
+Learn With Me
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="certificate-actions">
+
+
+<button 
+onclick="downloadCertificate()"
+class="download-btn">
+
+📥 Download Certificate
+
+</button>
+
+
+
+<button
+onclick="shareCertificate()"
+class="share-btn">
+
+📤 Share
+
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="social-share">
+
+
+<a id="whatsappShare" target="_blank">
+🟢 WhatsApp
+</a>
+
+
+<a id="linkedinShare" target="_blank">
+🔵 LinkedIn
+</a>
+
+
+<a id="facebookShare" target="_blank">
+📘 Facebook
+</a>
+
+
+<a id="twitterShare" target="_blank">
+🐦 X
+</a>
+
+
+<a id="telegramShare" target="_blank">
+✈️ Telegram
+</a>
+
+
+<a id="emailShare" target="_blank">
+📧 Email
+</a>
+
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+
+
+
+<script>
+
+
+function generateCertificate(){
+
+
+let name =
+document.getElementById("studentName").value;
+
+
+
+let course =
+document.getElementById("courseName").value;
+
+
+
+if(name.trim()==""){
+
+
+alert("Please enter your name");
+
+return;
+
+}
+
+
+
+
+document.getElementById("certName").innerText =
+name;
+
+
+
+document.getElementById("certCourse").innerText =
+course;
+
+
+
+
+
+let today = new Date();
+
+
+
+document.getElementById("certDate").innerText =
+today.toLocaleDateString();
+
+
+
+
+
+let certificateID =
+
+"LWM-" +
+
+Math.floor(
+100000 + Math.random()*900000
+);
+
+
+
+document.getElementById("certId").innerText =
+certificateID;
+
+
+
+
+document.getElementById("certificate")
+.style.display="block";
+
+
+
+
+setupShareLinks(course,certificateID);
+
+
+
+}
+
+
+
+
+
+
+function downloadCertificate(){
+
+
+
+let certificate =
+document.getElementById("certificate");
+
+
+
+html2canvas(certificate)
+.then(canvas=>{
+
+
+let link =
+document.createElement("a");
+
+
+
+link.download =
+"Learn-With-Me-Certificate.png";
+
+
+
+link.href =
+canvas.toDataURL();
+
+
+
+link.click();
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+async function shareCertificate(){
+
+
+let course =
+document.getElementById("certCourse").innerText;
+
+
+
+let id =
+document.getElementById("certId").innerText;
+
+
+
+
+let text =
+
+`🎉 I completed ${course} course from Learn With Me.
+Certificate ID: ${id}`;
+
+
+
+
+if(navigator.share){
+
+
+await navigator.share({
+
+title:
+"Course Certificate",
+
+text:text
+
+
+});
+
+
+}
+
+else{
+
+
+alert(
+"Sharing not supported"
+);
+
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+function setupShareLinks(course,id){
+
+
+
+let text = encodeURIComponent(
+
+`🎉 I completed ${course} course from Learn With Me.
+Certificate ID: ${id}`
+
+);
+
+
+
+
+document.getElementById("whatsappShare").href =
+"https://wa.me/?text="+text;
+
+
+
+document.getElementById("twitterShare").href =
+"https://twitter.com/intent/tweet?text="+text;
+
+
+
+document.getElementById("telegramShare").href =
+"https://t.me/share/url?text="+text;
+
+
+
+document.getElementById("facebookShare").href =
+"https://www.facebook.com/sharer/sharer.php";
+
+
+
+document.getElementById("linkedinShare").href =
+"https://www.linkedin.com/sharing/share-offsite/";
+
+
+
+document.getElementById("emailShare").href =
+"mailto:?body="+text;
+
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
