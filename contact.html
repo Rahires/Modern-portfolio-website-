@@ -77,25 +77,59 @@
 <footer>
     © 2026 Rahire Sahebrao Portfolio | All Rights Reserved
 </footer>
-
 <script>
+
 function sendMessage(event) {
+
     event.preventDefault();
 
+
     let name = document.getElementById("name").value;
+
     let email = document.getElementById("email").value;
+
     let msg = document.getElementById("msg").value;
 
+
+
+    // Email validation pattern
+
+    let emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+
+    if(!emailPattern.test(email)){
+
+        document.getElementById("status").innerText =
+        "❌ Please enter a valid email address.";
+
+        return;
+
+    }
+
+
+
     let whatsappURL = "https://wa.me/919284488740?text="
+
         + "Name: " + name + "%0A"
+
         + "Email: " + email + "%0A"
+
         + "Message: " + msg;
+
+
 
     window.open(whatsappURL, "_blank");
 
+
+
     document.getElementById("status").innerText =
+
         "🚀 Redirecting to WhatsApp...";
+
 }
+
 </script>
 
 </body>
